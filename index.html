@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Nhlanhla Luckey Hlongwane — IT Systems & Security Technician</title>
+<meta name="description" content="IT Manager keeping network, telephony and security running across a multi-site organisation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B1220;
+    --bg-alt:#0E1526;
+    --surface:#131C30;
+    --surface-2:#19243C;
+    --border:#263354;
+    --border-soft:#1C2740;
+    --text:#E9EEF7;
+    --text-dim:#8C98B4;
+    --text-faint:#5C6785;
+    --accent:#57D9C0;
+    --accent-soft:rgba(87,217,192,0.12);
+    --accent-dim:#3A9C8C;
+    --amber:#E8A33D;
+    --amber-soft:rgba(232,163,61,0.12);
+    --radius:10px;
+    --maxw:1120px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+  }
+  a{color:inherit;}
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 20px;}
+  }
+
+  :focus-visible{
+    outline:2px solid var(--accent);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(11,18,32,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-soft);
+  }
+  nav .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:64px;
+  }
+  .nav-mark{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+  }
+  .nav-mark .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 8px var(--accent);
+  }
+  .nav-links{
+    display:flex;
+    gap:28px;
+    list-style:none;
+    margin:0;
+    padding:0;
+    font-size:14px;
+    color:var(--text-dim);
+  }
+  .nav-links a{text-decoration:none; transition:color .15s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-links{display:flex;}
+  @media (max-width:640px){
+    .nav-links{display:none;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:88px 0 64px;
+    overflow:hidden;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:900px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:24px;height:1px;
+    background:var(--accent-dim);
+  }
+  .hero h1{
+    font-size:clamp(34px,4.6vw,52px);
+    line-height:1.08;
+    font-weight:600;
+    color:#fff;
+  }
+  .hero h1 .accent-word{color:var(--accent);}
+  .hero p.lede{
+    margin-top:22px;
+    font-size:17px;
+    color:var(--text-dim);
+    max-width:46ch;
+  }
+  .hero-cta{
+    display:flex;
+    gap:14px;
+    margin-top:32px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'IBM Plex Sans',sans-serif;
+    font-size:14.5px;
+    font-weight:500;
+    padding:12px 22px;
+    border-radius:8px;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    transition:transform .15s ease, border-color .15s ease, background .15s ease;
+  }
+  .btn svg{
+    width:17px;
+    height:17px;
+    flex-shrink:0;
+  }
+  .btn-primary svg{stroke:#06231F;}
+  .btn-ghost svg{stroke:var(--text-dim); transition:stroke .15s ease;}
+  .btn-ghost:hover svg{stroke:var(--accent);}
+  .btn-primary{
+    background:var(--accent);
+    color:#06231F;
+  }
+  .btn-primary:hover{transform:translateY(-1px); background:#6EE3CC;}
+  .btn-ghost{
+    border:1px solid var(--border);
+    color:var(--text);
+    background:transparent;
+  }
+  .btn-ghost:hover{border-color:var(--accent-dim); color:var(--accent);}
+
+  /* network map */
+  .netmap{
+    position:relative;
+    aspect-ratio:1/1;
+    max-width:480px;
+    margin:0 auto;
+  }
+  .netmap svg{width:100%; height:100%; display:block;}
+  .netmap .link{
+    stroke:var(--border);
+    stroke-width:1.4;
+    fill:none;
+  }
+  .netmap .link-pulse{
+    stroke:var(--accent);
+    stroke-width:1.6;
+    fill:none;
+    stroke-dasharray:6 220;
+    opacity:0.9;
+    animation:dash 5.5s linear infinite;
+  }
+  @keyframes dash{
+    to{stroke-dashoffset:-460;}
+  }
+  .netmap .node-core{
+    fill:var(--surface-2);
+    stroke:var(--accent);
+    stroke-width:1.6;
+  }
+  .netmap .node{
+    fill:var(--surface);
+    stroke:var(--border);
+    stroke-width:1.3;
+  }
+  .netmap .node-dot{
+    fill:var(--accent);
+    animation:pulse-op 3s ease-in-out infinite;
+  }
+  @keyframes pulse-op{
+    0%,100%{opacity:0.5;}
+    50%{opacity:1;}
+  }
+  .netmap text{
+    font-family:'IBM Plex Mono',monospace;
+    fill:var(--text-dim);
+    font-size:9.5px;
+  }
+  .netmap .core-label{
+    fill:var(--text);
+    font-size:10.5px;
+    font-weight:500;
+  }
+
+  /* ---------- STATS BAR ---------- */
+  .statbar{
+    border-bottom:1px solid var(--border-soft);
+    background:var(--bg-alt);
+  }
+  .statbar .wrap{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--border-soft);
+  }
+  @media (max-width:700px){
+    .statbar .wrap{grid-template-columns:repeat(2,1fr);}
+  }
+  .stat{
+    background:var(--bg-alt);
+    padding:26px 24px;
+  }
+  .stat .num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:26px;
+    color:var(--accent);
+  }
+  .stat .label{
+    font-size:12.5px;
+    color:var(--text-dim);
+    margin-top:4px;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section.block{
+    padding:80px 0;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:44px;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  .section-head h2{
+    font-size:26px;
+    font-weight:600;
+    color:#fff;
+  }
+  .section-head .tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--text-faint);
+  }
+
+  /* ---------- TIMELINE (journey) ---------- */
+  .timeline{
+    position:relative;
+    padding-left:28px;
+  }
+  .timeline::before{
+    content:"";
+    position:absolute;
+    left:5px; top:6px; bottom:6px;
+    width:1px;
+    background:linear-gradient(var(--accent-dim), var(--border-soft));
+  }
+  .tl-item{
+    position:relative;
+    padding-bottom:36px;
+  }
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:"";
+    position:absolute;
+    left:-28px; top:4px;
+    width:11px; height:11px;
+    border-radius:50%;
+    background:var(--bg);
+    border:2px solid var(--accent);
+  }
+  .tl-item .tl-when{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--accent);
+    margin-bottom:6px;
+    display:block;
+  }
+  .tl-item h3{
+    font-size:18px;
+    font-weight:600;
+    color:#fff;
+    margin-bottom:6px;
+  }
+  .tl-item p{
+    color:var(--text-dim);
+    font-size:14.5px;
+    max-width:62ch;
+    margin:0;
+  }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:1px;
+    background:var(--border-soft);
+    border:1px solid var(--border-soft);
+    border-radius:var(--radius);
+    overflow:hidden;
+  }
+  @media (max-width:700px){
+    .skills-grid{grid-template-columns:1fr;}
+  }
+  .skill-cat{
+    background:var(--surface);
+    padding:28px 30px;
+  }
+  .skill-cat .cat-label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:var(--amber);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin-bottom:14px;
+  }
+  .chip-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .chip{
+    font-size:13px;
+    padding:6px 12px;
+    border-radius:999px;
+    border:1px solid var(--border);
+    color:var(--text-dim);
+    background:var(--bg-alt);
+  }
+
+  /* ---------- WORK CARDS ---------- */
+  .work-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+  }
+  @media (max-width:800px){
+    .work-grid{grid-template-columns:1fr;}
+  }
+  .work-card{
+    background:var(--surface);
+    border:1px solid var(--border-soft);
+    border-radius:var(--radius);
+    padding:26px 26px 24px;
+    transition:border-color .18s ease, transform .18s ease;
+  }
+  .work-card:hover{
+    border-color:var(--accent-dim);
+    transform:translateY(-2px);
+  }
+  .work-card .wc-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--accent);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  .work-card h3{
+    font-size:17.5px;
+    font-weight:600;
+    color:#fff;
+    margin:10px 0 8px;
+  }
+  .work-card p{
+    font-size:14px;
+    color:var(--text-dim);
+    margin:0;
+  }
+  .wc-foot{
+    margin-top:16px;
+    display:flex;
+    gap:16px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11.5px;
+    color:var(--text-faint);
+  }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  .contact{
+    padding:80px 0 40px;
+  }
+  .contact-inner{
+    background:var(--surface);
+    border:1px solid var(--border-soft);
+    border-radius:16px;
+    padding:56px;
+    text-align:center;
+  }
+  @media (max-width:600px){
+    .contact-inner{padding:36px 22px;}
+  }
+  .contact h2{
+    font-size:28px;
+    color:#fff;
+    font-weight:600;
+  }
+  .contact p{
+    color:var(--text-dim);
+    max-width:48ch;
+    margin:14px auto 0;
+  }
+  .contact-links{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+  }
+  footer{
+    padding:32px 0 48px;
+    text-align:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--text-faint);
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="nav-mark"><span class="dot"></span>NHLANHLA LUCKEY HLONGWANE</a>
+     <ul class="nav-links">
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav> 
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">IT Systems & Security Technician · Business Innovation &amp; Technology</div>
+      <h1>Seven sites.<br>One network.<br><span class="accent-word">Kept running.</span></h1>
+      <p class="lede">I'm Nhlanhla Luckey Hlongwane — an IT Systems & Security Technician who started as an intern and grew into running network infrastructure, telephony, and vendor relationships across a multi-site organisation, largely solo.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="#work">See the work</a>
+      </div>
+    </div>
+    <div class="netmap" aria-hidden="true">
+      <svg viewBox="0 0 400 400">
+        <!-- links from core to each branch -->
+        <path class="link" d="M200,200 L200,70" />
+        <path class="link" d="M200,200 L320,120" />
+        <path class="link" d="M200,200 L340,230" />
+        <path class="link" d="M200,200 L270,340" />
+        <path class="link" d="M200,200 L130,340" />
+        <path class="link" d="M200,200 L60,230" />
+        <path class="link" d="M200,200 L80,120" />
+
+        <!-- animated pulse overlay, staggered -->
+        <path class="link-pulse" d="M200,200 L200,70" style="animation-delay:0s" />
+        <path class="link-pulse" d="M200,200 L320,120" style="animation-delay:.7s" />
+        <path class="link-pulse" d="M200,200 L340,230" style="animation-delay:1.4s" />
+        <path class="link-pulse" d="M200,200 L270,340" style="animation-delay:2.1s" />
+        <path class="link-pulse" d="M200,200 L130,340" style="animation-delay:2.8s" />
+        <path class="link-pulse" d="M200,200 L60,230" style="animation-delay:3.5s" />
+        <path class="link-pulse" d="M200,200 L80,120" style="animation-delay:4.2s" />
+
+        <!-- branch nodes -->
+        <g>
+          <circle class="node" cx="200" cy="70" r="26"/>
+          <circle class="node-dot" cx="200" cy="55" r="2.4"/>
+          <text x="200" y="74" text-anchor="middle">DBN-BR</text>
+        </g>
+        <g>
+          <circle class="node" cx="320" cy="120" r="26"/>
+          <circle class="node-dot" cx="333" cy="107" r="2.4"/>
+          <text x="320" y="124" text-anchor="middle">JHB</text>
+        </g>
+        <g>
+          <circle class="node" cx="340" cy="230" r="26"/>
+          <circle class="node-dot" cx="354" cy="218" r="2.4"/>
+          <text x="340" y="234" text-anchor="middle">NCL</text>
+        </g>
+        <g>
+          <circle class="node" cx="270" cy="340" r="26"/>
+          <circle class="node-dot" cx="283" cy="328" r="2.4"/>
+          <text x="270" y="344" text-anchor="middle">RBY</text>
+        </g>
+        <g>
+          <circle class="node" cx="130" cy="340" r="26"/>
+          <circle class="node-dot" cx="117" cy="328" r="2.4"/>
+          <text x="130" y="344" text-anchor="middle">PMB</text>
+        </g>
+        <g>
+          <circle class="node" cx="60" cy="230" r="26"/>
+          <circle class="node-dot" cx="46" cy="218" r="2.4"/>
+          <text x="60" y="234" text-anchor="middle">PSH</text>
+        </g>
+        <g>
+          <circle class="node" cx="80" cy="120" r="26"/>
+          <circle class="node-dot" cx="67" cy="107" r="2.4"/>
+          <text x="80" y="124" text-anchor="middle">·</text>
+        </g>
+
+        <!-- core node -->
+        <circle class="node-core" cx="200" cy="200" r="38"/>
+        <text class="core-label" x="200" y="196" text-anchor="middle">DBN</text>
+        <text class="core-label" x="200" y="210" text-anchor="middle">HQ</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="statbar">
+  <div class="wrap">
+    <div class="stat">
+      <div class="num">7</div>
+      <div class="label">Sites supported</div>
+    </div>
+    <div class="stat">
+      <div class="num">~80%</div>
+      <div class="label">Of business systems administered</div>
+    </div>
+    <div class="stat">
+      <div class="num">1</div>
+      <div class="label">Person running IT day-to-day</div>
+    </div>
+    <div class="stat">
+      <div class="num">Intern → Mgr</div>
+      <div class="label">Career trajectory in-house</div>
+    </div>
+  </div>
+</div>
+
+<section class="block" id="journey">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>How I got here</h2>
+      <span class="tag">/ 02 — journey</span>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-when">Early days</span>
+        <h3>IT Intern</h3>
+        <p>Joined on an internship, learning the environment from the ground up — helpdesk tickets, hardware, and the day-to-day rhythm of keeping a multi-site business online.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-when">Building the base</span>
+        <h3>IT Technician / Administrator</h3>
+        <p>Took ownership of core systems administration — firewalls, telephony platforms, and Microsoft 365 — while extending support across every branch, not just head office.</p>
+      </div>
+      <div class="tl-item">
+        <span class="tl-when">Today</span>
+        <h3>IT Systems & Security Technician, Business Innovation &amp; Technology</h3>
+        <p>Run network infrastructure, telephony, licensing, and vendor relationships for a multi-site organisation almost entirely solo — from firewall rollouts to platform migrations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>What I work with</h2>
+      <span class="tag">/ 03 — skills</span>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cat">
+        <div class="cat-label">Network &amp; Security</div>
+        <div class="chip-row">
+          <span class="chip">FortiGate Firewalls</span>
+          <span class="chip">Sophos Central</span>
+          <span class="chip">VPN &amp; Remote Access</span>
+          <span class="chip">Multi-site Networking</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-label">Telephony &amp; Comms</div>
+        <div class="chip-row">
+          <span class="chip">3CX</span>
+          <span class="chip">Smartz Suite</span>
+          <span class="chip">Yealink VoIP</span>
+          <span class="chip">Contact Centre Systems</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-label">Cloud &amp; Productivity</div>
+        <div class="chip-row">
+          <span class="chip">Microsoft 365 Admin</span>
+          <span class="chip">Exchange / SMTP</span>
+          <span class="chip">Teams</span>
+          <span class="chip">Microsoft Planner</span>
+        </div>
+      </div>
+      <div class="skill-cat">
+        <div class="cat-label">Vendor &amp; Operations</div>
+        <div class="chip-row">
+          <span class="chip">Vendor Management</span>
+          <span class="chip">Licensing &amp; Cost Control</span>
+          <span class="chip">Ticket Triage (P1–P3)</span>
+          <span class="chip">Project Tracking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Selected work</h2>
+      <span class="tag">/ 04 — highlights</span>
+    </div>
+    <div class="work-grid">
+      <div class="work-card">
+        <div class="wc-tag">Infrastructure</div>
+        <h3>Multi-site FortiGate rollout</h3>
+        <p>Planned and delivered firewall installations across branch sites, coordinating remote access, ISP dependencies, and on-site scheduling for each location.</p>
+        <div class="wc-foot"><span>6 branches</span><span>Solo-led</span></div>
+      </div>
+      <div class="work-card">
+        <div class="wc-tag">Telephony</div>
+        <h3>3CX → Smartz Suite migration</h3>
+        <p>Evaluating and managing a full telephony platform transition, weighing licensing, cost, and reseller support ahead of a contract expiry.</p>
+        <div class="wc-foot"><span>Cost modelling</span><span>Vendor evaluation</span></div>
+      </div>
+      <div class="work-card">
+        <div class="wc-tag">Security</div>
+        <h3>Sophos Central deployment</h3>
+        <p>Rolled out and administered Sophos Central across the business, resolving access and permissioning issues along the way.</p>
+        <div class="wc-foot"><span>Endpoint security</span></div>
+      </div>
+      <div class="work-card">
+        <div class="wc-tag">Operations</div>
+        <h3>IT ops tracker &amp; triage system</h3>
+        <p>Built a structured ticket and project tracker with a P1/P2/P3 triage framework to bring order to a high-volume, multi-site support load.</p>
+        <div class="wc-foot"><span>Process design</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <h2>Let's talk</h2>
+      <p>Open to IT Systems, Security, and Infrastructure Technician roles. Reach out below.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:nhlanhlaluckey01@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5h18v11a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5v-11Z"/><path d="M3 6.5 12 13l9-6.5"/></svg>
+          Email me
+        </a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/nhlanhla-luckey-hlongwane-713a64151" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M7.5 10.5v6M7.5 7.75v.01M11.5 16.5v-3.6c0-1.35 1.02-2.4 2.35-2.4s2.15 1 2.15 2.4v3.6"/></svg>
+          LinkedIn
+        </a>
+        <a class="btn btn-ghost" href="https://facebook.com/profile.php?id=100078377353061" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 8.5h-2a2 2 0 0 0-2 2V13H8.5v3H11v5.5h3V16h2.3l.7-3H14v-2c0-.55.45-1 1-1h2v-3.5Z"/></svg>
+          Facebook
+        </a>
+        <a class="btn btn-ghost" href="Nhlanhla_Luckey_Hlongwane_Resume.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M4 17v2.5A1.5 1.5 0 0 0 5.5 21h13a1.5 1.5 0 0 0 1.5-1.5V17"/></svg>
+          Download Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Nhlanhla Luckey Hlongwane
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
